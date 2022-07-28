@@ -363,7 +363,6 @@ async def vplay(c: Client, m: Message):
 
 
 @Client.on_message(command([".pse", "pse"]) & SUDOERS)
-@authorized_users_only
 async def pause(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -379,7 +378,6 @@ async def pause(client, m: Message):
 
 
 @Client.on_message(command(["r", "rsm"]) & SUDOERS)
-@authorized_users_only
 async def resume(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -395,7 +393,6 @@ async def resume(client, m: Message):
         
         
 @Client.on_message(command([".skp", "skp"]) & SUDOERS)
-@authorized_users_only
 async def skip(c: Client, m: Message):
     await m.delete()
     user_id = m.from_user.id
@@ -430,7 +427,6 @@ async def skip(c: Client, m: Message):
 
 
 @Client.on_message(command([".end", "end", "x", ".stp", "stp"]) & SUDOERS)
-@authorized_users_only
 async def stop(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
