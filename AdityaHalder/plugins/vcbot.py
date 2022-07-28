@@ -20,6 +20,18 @@ from pytgcalls.types.input_stream.quality import (
 from youtubesearchpython import VideosSearch
 from AdityaHalder.utilities.misc import SUDOERS
 
+
+def ytsearch(query: str):
+    try:
+        search = VideosSearch(query, limit=1).result()
+        data = search["result"][0]
+        songname = data["title"]
+        url = data["link"]
+        return [songname, url]
+    except Exception as e:
+        print(e)
+        return 0
+
 async def ytdl(link: str):
     stdout, stderr = await bash(
         f'yt-dlp -g -f "best[height<=?720][width<=?1280]" {link}'
@@ -45,7 +57,7 @@ async def ytdl_(link):
     else:
         return 0, stderr.decode()
 
-
+@app.on_message(command([".ply", "ply"]) & SUDOERS)
 @Client.on_message(command([".ply", "ply"]) & SUDOERS)
 async def play(c: Client, m: Message):
     await m.delete()
