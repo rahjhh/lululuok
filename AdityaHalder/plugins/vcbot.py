@@ -1,7 +1,7 @@
 import re
 import asyncio
 from AdityaHalder.modules.cache.admins import admins
-from AdityaHalder.modules.helpers.filters import command, other_filters
+from AdityaHalder.modules.helpers.filters import command
 from AdityaHalder.utilities.utils import bash, skip_current_song, skip_item
 from AdityaHalder.modules.clientbot.queues import QUEUE, add_to_queue, clear_queue
 from AdityaHalder.modules.clientbot import client as app, pytgcalls as aditya
@@ -459,6 +459,7 @@ __HELP__ = f"""
 **Yᴏᴜ Cᴀɴ Pʟᴀʏ Mᴜsɪᴄ Oɴ VC**
 
 `.ply` - Pʟᴀʏ Mᴜsɪᴄ Oɴ Vᴄ
+`.ply` - Pʟᴀʏ Vɪᴅᴇᴏ Oɴ Vᴄ
 `.pse` - Pᴀᴜsᴇ Yᴏᴜʀ Mᴜsɪᴄ
 `.rsm` - Rᴇsᴜᴍᴇ Yᴏᴜʀ Mᴜsɪᴄ
 `.skp` - Sᴋɪᴘ Tᴏ Tʜᴇ Nᴇxᴛ Sᴏɴɢ
