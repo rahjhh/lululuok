@@ -1,9 +1,8 @@
 import re
 import asyncio
 from AdityaHalder.modules.cache.admins import admins
-from AdityaHalder.modules.helpers.filters import other_filters
+from AdityaHalder.modules.helpers.filters import command, other_filters
 from AdityaHalder.utilities.utils import bash, skip_current_song, skip_item
-from AdityaHalder.modules.helpers.command import commandpro as command
 from AdityaHalder.modules.clientbot.queues import QUEUE, add_to_queue, clear_queue
 from AdityaHalder.modules.clientbot import client as app, pytgcalls as aditya
 from AdityaHalder.modules.helpers.decorators import sudo_users_only
@@ -59,9 +58,9 @@ async def ytdl_(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command([".ply", "ply"]) & SUDOERS)
+@Client.on_message(command(["ply", "play"]) & SUDOERS)
 async def play(c: Client, m: Message):
-    #await m.delete()
+    await m.delete()
     replied = m.reply_to_message
     chat_id = m.chat.id
     user_id = m.from_user.id
@@ -208,7 +207,7 @@ async def play(c: Client, m: Message):
                             await m.reply_text(f"🚫 𝐄𝐫𝐫𝐨𝐫: `{ep}`")
 
 
-@Client.on_message(command([".vply", "vply"]) & SUDOERS)
+@Client.on_message(command(["vply", "vplay"]) & SUDOERS)
 async def vplay(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
@@ -375,7 +374,7 @@ async def vplay(c: Client, m: Message):
                             await m.reply_text(f"🚫 𝐄𝐫𝐫𝐨𝐫: `{ep}`")
 
 
-@Client.on_message(command([".pse", "pse"]) & SUDOERS)
+@Client.on_message(command(["pse", "pause"]) & SUDOERS)
 async def pause(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -390,7 +389,7 @@ async def pause(client, m: Message):
         await m.reply("**❌ 𝐍𝐨𝐭𝐡𝐢𝐧𝐠 𝐏𝐥𝐚𝐲𝐢𝐧𝐠❗...**")
 
 
-@Client.on_message(command(["r", "rsm"]) & SUDOERS)
+@Client.on_message(command(["rsm", "resume"]) & SUDOERS)
 async def resume(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
@@ -405,7 +404,7 @@ async def resume(client, m: Message):
         await m.reply("**❌ 𝐍𝐨𝐭𝐡𝐢𝐧𝐠 𝐏𝐥𝐚𝐲𝐢𝐧𝐠❗...**")
         
         
-@Client.on_message(command([".skp", "skp"]) & SUDOERS)
+@Client.on_message(command(["skp", "skip"]) & SUDOERS)
 async def skip(c: Client, m: Message):
     await m.delete()
     user_id = m.from_user.id
@@ -439,7 +438,7 @@ async def skip(c: Client, m: Message):
             await m.reply(OP)
 
 
-@Client.on_message(command([".end", "end", "x", ".stp", "stp"]) & SUDOERS)
+@Client.on_message(command(["end", "end", "stp", "stop"]) & SUDOERS)
 async def stop(client, m: Message):
     chat_id = m.chat.id
     if chat_id in QUEUE:
