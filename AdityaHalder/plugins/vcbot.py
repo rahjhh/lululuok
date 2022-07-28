@@ -6,6 +6,7 @@ from AdityaHalder.utilities.utils import bash, skip_current_song, skip_item
 from AdityaHalder.modules.helpers.command import commandpro as command
 from AdityaHalder.modules.clientbot.queues import QUEUE, add_to_queue, clear_queue
 from AdityaHalder.modules.clientbot import client as app, pytgcalls as aditya
+from AdityaHalder.modules.helpers import sudo_users_only
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import Message
@@ -58,7 +59,8 @@ async def ytdl_(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command([".ply", "ply"]) & filters.group & SUDOERS)
+@Client.on_message(command([".ply", "ply"]) & filters.group)
+@sudo_users_only
 async def play(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
