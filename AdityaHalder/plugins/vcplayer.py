@@ -59,8 +59,7 @@ async def ytdl_(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command([".ply", "ply"]) & filters.group)
-@sudo_users_only
+@aditya.on_message(command([".ply", "ply"]) & SUDOERS)
 async def play(c: Client, m: Message):
     #await m.delete()
     replied = m.reply_to_message
