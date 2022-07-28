@@ -59,7 +59,7 @@ async def ytdl_(link):
         return 0, stderr.decode()
 
 
-@aditya.on_message(command([".ply", "ply"]) & SUDOERS)
+@Client.on_message(command([".ply", "ply"]) & SUDOERS)
 async def play(c: Client, m: Message):
     #await m.delete()
     replied = m.reply_to_message
