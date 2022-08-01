@@ -17,7 +17,7 @@ STRING_SESSION = getenv("STRING_SESSION", "1BVtsOHUBuzrgL4IHDKnjlJcZKJ0UL8pJJMHy
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ". ! /").split())
 MONGO_DB_URL = getenv("MONGO_DB_URL", "mongodb+srv://toxic_rahul69:<Rahul@9090>@cluster0.xaaorcc.mongodb.net/?retryWrites=true&w=majority")
 OWNER_ID = list(map(int, getenv("OWNER_ID", "1163549470").split()))
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", ""))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "730344570"))
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "1163549470").split()))
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/GeniusBoi/Genius-Userbot")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "aditya")
